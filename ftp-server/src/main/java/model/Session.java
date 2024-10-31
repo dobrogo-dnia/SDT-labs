@@ -12,13 +12,13 @@ public class Session {
     private int sessionId;
 
     @ManyToOne
-    @JoinColumn(unique = true, name="userId")
+    @JoinColumn(name="userId")
     private User user;
 
-    @Column
+    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime startTime;
 
-    @Column
+    @Column(columnDefinition = "BOOLEAN DEFAULT true")
     private boolean isActive;
 
     public Session() { }

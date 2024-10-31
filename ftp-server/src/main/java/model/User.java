@@ -24,7 +24,7 @@ public class User {
     @Column(nullable = false)
     private String homeDirectory;
 
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(mappedBy = "owner", orphanRemoval = true)
     private final List<File> files = new ArrayList<>();
 
     public User() { }

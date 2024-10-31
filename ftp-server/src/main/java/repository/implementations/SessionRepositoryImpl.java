@@ -69,13 +69,4 @@ public class SessionRepositoryImpl implements SessionRepository {
 
     }
 
-    @Override
-    public void deleteSession(int sessionId) {
-        EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-        Session session = entityManager.find(Session.class, sessionId);
-        if(session != null)
-            entityManager.remove(session);
-        transaction.commit();
-    }
 }
