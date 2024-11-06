@@ -3,12 +3,13 @@ package repository.interfaces;
 import model.File;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface FileRepository {
-    File getById(int fileId);
+    Optional<File> getById(int fileId);
     List<File> getByUserId(int userId);
     File createFile(File file);
     File updateFile(File modifiedFile);
-    void deleteById(int fileId);
+    void deleteFile(int fileId);
 
 }

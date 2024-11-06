@@ -19,12 +19,16 @@ public class File {
     @JoinColumn(nullable = false, name="ownerId")
     private User owner;
 
-    public File() { }
+    public File(String path) { }
 
     public File(String name, String location, User owner) {
         this.name = name;
         this.location = location;
         this.owner = owner;
+    }
+
+    public File() {
+
     }
 
     public int getFileId() {
@@ -43,4 +47,19 @@ public class File {
         return owner;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public File[] listFiles() {
+        return new File[0];
+    }
+
+    public boolean exists() {
+        return false;
+    }
+
+    public boolean isFile() {
+        return false;
+    }
 }
