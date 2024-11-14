@@ -52,4 +52,8 @@ public class FtpServerController {
         return sessions;
     }
 
+    public boolean checkIfUserExist(String username) {
+        return authenticationService.userExists(username);
+    }
+
 }

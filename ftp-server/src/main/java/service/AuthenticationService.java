@@ -16,7 +16,7 @@ public class AuthenticationService {
         User currentUser = userService.getByUsername(username);
         if (currentUser != null && currentUser.getPassword().equals(password)) {
             Session newSession = new Session(currentUser);
-            sessionService.createSession(newSession); // Переносим сюда
+            sessionService.createSession(newSession);
             return currentUser;
         }
         return null;
@@ -28,6 +28,11 @@ public class AuthenticationService {
         Session activeSession = sessionService.getActiveSessionForUser(user.getUserId());
         if (activeSession != null)
             sessionService.modifySessionStatus(activeSession.getSessionId());
+    }
+
+    public boolean userExists(String username) {
+        User user = userService.getByUsername(username);
+        return user != null;
     }
 
 }
