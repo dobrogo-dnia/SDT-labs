@@ -16,7 +16,7 @@ public class AdminLoggedInServerState implements FtpServerState {
     private Socket activeDataSocket;
 
     public AdminLoggedInServerState(FtpServer ftpServer, String currentDirectoryPath) {
-        this.currentDirectoryPath =  new StringBuilder(currentDirectoryPath);
+        this.currentDirectoryPath = new StringBuilder(currentDirectoryPath);
         this.clientSocket = ftpServer.getClientSocket();
     }
 
@@ -27,34 +27,34 @@ public class AdminLoggedInServerState implements FtpServerState {
 
         switch (command) {
             case "RETR":
-
+                // TODO:  реалізація пізніше з використанням хендлера
                 break;
             case "STOR":
-
+                // реалізація пізніше з використанням хендлера
                 break;
             case "DEL":
-
+                // реалізація пізніше з використанням хендлера
                 break;
             case "CDUP":
-
+                // реалізація пізніше з використанням хендлера
                 break;
             case "LIST":
-
+                // реалізація пізніше з використанням хендлера
                 break;
             case "CWD":
-
+                // реалізація пізніше з використанням хендлера
                 break;
             case "PWD":
-
+                // реалізація пізніше з використанням хендлера
                 break;
             case "CREATE":
-
+                // реалізація пізніше з використанням хендлера
                 break;
             case "USERS":
-
+                // реалізація пізніше з використанням хендлера
                 break;
             case "LOG":
-
+                // реалізація пізніше з використанням хендлера
                 break;
             case "ACCT":
                 return new FtpResponse(230, "username: " + user.getUsername() + "; has admin rights: " + user.getIsAdmin());
@@ -67,6 +67,6 @@ public class AdminLoggedInServerState implements FtpServerState {
             default:
                 return new FtpResponse(502, "Command not implemented");
         }
-
+        return new FtpResponse(502, "Command not implemented");
     }
 }

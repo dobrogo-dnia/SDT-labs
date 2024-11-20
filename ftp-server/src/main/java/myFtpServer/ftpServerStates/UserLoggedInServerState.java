@@ -48,5 +48,6 @@ public class UserLoggedInServerState implements FtpServerState {
             default:
                 return new FtpResponse(502, "Command not implemented");
         }
+        return new FtpResponse(502, "Command not implemented");
     }
 }

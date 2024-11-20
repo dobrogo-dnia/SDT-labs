@@ -10,13 +10,13 @@ import myFtpServer.protocol.FtpResponse;
 import java.io.IOException;
 import java.net.Socket;
 
-public class NotLoggedInServerState implements FtpServerState{
+public class NotLoggedInServerState implements FtpServerState {
     private final FtpServerController controller;
     private final Logger logger;
     private final Socket clientSocket;
     private final FtpServer ftpServer;
 
-    public NotLoggedInServerState(FtpServer ftpServer) throws  IOException{
+    public NotLoggedInServerState(FtpServer ftpServer) throws IOException {
         this.ftpServer = ftpServer;
         this.logger = Logger.getLogger();
         this.controller = ftpServer.getController();
@@ -36,12 +36,26 @@ public class NotLoggedInServerState implements FtpServerState{
                     return new FtpResponse(331, "Username okay, need password");
                 } else
                     return new FtpResponse(530, "Username does not exist");
+            case "PASS":
+                if (user.getUsername() == null)
+                    return new FtpResponse(530, "Username needed");
+                User loggedInUser = controller.processLogin(user.getUsername(), argument, logger, clientSocket);
+                if (loggedInUser == null)
+                    return new FtpResponse(530, "Wrong password");
+                else {
+                    setUserData(user, loggedInUser);
+                    if (user.getIsAdmin())
+                        ftpServer.setState(new AdminLoggedInServerState(ftpServer, user.getHomeDirectory()));
+                    else
+                        ftpServer.setState(new UserLoggedInServerState(ftpServer));
+
+                    return new FtpResponse(230, "User successfully logged in");
+                }
             case "SYST":
                 return new FtpResponse(215, "NAME " + System.getProperty("os.name") + " VERSION " + System.getProperty("os.version"));
-            case "QUIT":
-
+            default:
+                return new FtpResponse(502, "Command not implemented");
         }
-
     }
 
     private void setUserData(User initialUser, User loggedInUser) {
