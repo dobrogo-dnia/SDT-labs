@@ -25,25 +25,26 @@ public class UserLoggedInServerState implements FtpServerState {
 
         switch (command) {
             case "RETR":
-
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
             case "DEL":
-
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
             case "TYPE":
-
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
             case "LIST":
-
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
             case "PWD":
-
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
             case "ACCT":
                 return new FtpResponse(230, "username: " + user.getUsername() + "; has admin rights: " + user.getIsAdmin());
             case "SYST":
                 return new FtpResponse(215, "NAME " + System.getProperty("os.name") + " VERSION " + System.getProperty("os.version"));
             case "QUIT":
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
             default:
                 return new FtpResponse(502, "Command not implemented");

@@ -30,40 +30,39 @@ public class AdminLoggedInServerState implements FtpServerState {
                 // TODO:  реалізація пізніше з використанням хендлера
                 break;
             case "STOR":
-                // реалізація пізніше з використанням хендлера
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
             case "DEL":
-                // реалізація пізніше з використанням хендлера
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
             case "CDUP":
-                // реалізація пізніше з використанням хендлера
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
             case "LIST":
-                // реалізація пізніше з використанням хендлера
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
             case "CWD":
-                // реалізація пізніше з використанням хендлера
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
             case "PWD":
-                // реалізація пізніше з використанням хендлера
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
             case "CREATE":
-                // реалізація пізніше з використанням хендлера
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
             case "USERS":
-                // реалізація пізніше з використанням хендлера
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
             case "LOG":
-                // реалізація пізніше з використанням хендлера
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
             case "ACCT":
                 return new FtpResponse(230, "username: " + user.getUsername() + "; has admin rights: " + user.getIsAdmin());
             case "SYST":
                 return new FtpResponse(215, "NAME " + System.getProperty("os.name") + " VERSION " + System.getProperty("os.version"));
             case "QUIT":
-
+                // TODO: реалізація пізніше з використанням хендлера
                 break;
-
             default:
                 return new FtpResponse(502, "Command not implemented");
         }
