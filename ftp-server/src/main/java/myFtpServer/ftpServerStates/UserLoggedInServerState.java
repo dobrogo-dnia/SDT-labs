@@ -39,6 +39,11 @@ public class UserLoggedInServerState implements FtpServerState {
             case "PWD":
                 // TODO: реалізація пізніше з використанням хендлера
                 break;
+            case "ALTER":
+                // TODO: реалізація пізніше з використанням хендлера, команда для зміни юзернейма, пароля - використання шаблону memento
+                break;
+            case "RESTORE":
+                // TODO: реалізація пізніше з використанням хендлера, команда для повернення попередніх значень даних користувача - використання шаблону memento
             case "ACCT":
                 return new FtpResponse(230, "username: " + user.getUsername() + "; has admin rights: " + user.getIsAdmin());
             case "SYST":
