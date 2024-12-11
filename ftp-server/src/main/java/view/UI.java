@@ -30,4 +30,28 @@ public class UI {
         reader.close();
     }
 
+    public void displayUsersList(List<User> users) throws IOException {
+        for (User user : users) {
+            writer.write(user.toString());
+            writer.newLine();
+        }
+        writer.flush();
+    }
+
+    public void displayLogFileContent(List<String> content) throws IOException {
+        writer.write("Reading log file...");
+        writer.newLine();
+
+        if(content.isEmpty()) {
+            writer.write("File is empty.");
+            writer.newLine();
+        } else {
+            for(String line : content) {
+                writer.write(line);
+                writer.newLine();
+            }
+        }
+
+        writer.flush();
+    }
 }
