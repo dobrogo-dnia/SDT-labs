@@ -44,4 +44,8 @@ public class SessionService {
         sessionRepository.updateSessionStatus(sessionId);
     }
 
+    public void deleteSession(int sessionId) {
+        sessionRepository.deleteSession(sessionId);
+    }
+
 }

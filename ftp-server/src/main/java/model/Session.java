@@ -1,12 +1,14 @@
 package model;
 
 import jakarta.persistence.*;
+import visitor.Visitable;
+import visitor.Visitor;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "sessions")
-public class Session {
+public class Session implements Visitable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sessionId;
@@ -47,6 +49,11 @@ public class Session {
 
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 
 }

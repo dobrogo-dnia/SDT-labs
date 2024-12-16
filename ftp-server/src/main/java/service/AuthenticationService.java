@@ -3,6 +3,7 @@ package service;
 import logger.Logger;
 import model.Session;
 import model.User;
+import visitor.CreateVisitor;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -38,6 +39,7 @@ public class AuthenticationService {
         if(currentUser != null && currentUser.getPassword().equals(password)){
             if (sessionService.getActiveSessionForUser(currentUser.getUserId()) == null){
                 Session newSession = new Session(currentUser);
+                newSession.accept(new CreateVisitor());
                 logger.writeLogInEventToFile(clientSocket.getInetAddress().getHostAddress(), currentUser.getUsername());
             }
             return currentUser;
