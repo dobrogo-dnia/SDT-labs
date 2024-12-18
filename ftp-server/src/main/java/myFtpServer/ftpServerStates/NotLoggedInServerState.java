@@ -47,12 +47,18 @@ public class NotLoggedInServerState implements FtpServerState {
                     if (user.getIsAdmin())
                         ftpServer.setState(new AdminLoggedInServerState(ftpServer, user.getHomeDirectory()));
                     else
-                        ftpServer.setState(new UserLoggedInServerState(ftpServer));
+                        ftpServer.setState(new UserLoggedInServerState(ftpServer, user.getHomeDirectory()));
 
                     return new FtpResponse(230, "User successfully logged in");
                 }
             case "SYST":
                 return new FtpResponse(215, "NAME " + System.getProperty("os.name") + " VERSION " + System.getProperty("os.version"));
+            case "QUIT":
+                if(user == null) {
+                    return new FtpResponse(530, "User not logged in");
+                }
+                controller.processLogOut(user.getUsername());
+                return new FtpResponse(221, "Service closing control connection");
             default:
                 return new FtpResponse(502, "Command not implemented");
         }
