@@ -11,5 +11,4 @@ public interface SessionRepository {
     List<Session> getActiveSessions();
     Session getActiveSessionForUser(int userId);
     void deleteSession(int sessionId);
-
 }

@@ -116,7 +116,7 @@ public class User implements Visitable {
         return userId == user.userId && isAdmin == user.isAdmin && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(homeDirectory, user.homeDirectory) && Objects.equals(files, user.files);
     }
 
-    // @Override
+    @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }

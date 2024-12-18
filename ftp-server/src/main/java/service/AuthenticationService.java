@@ -26,14 +26,6 @@ public class AuthenticationService {
         return user != null;
     }
 
-    public boolean userAllowedToHaveNewSession(String username) {
-        User user = userService.getByUsername(username);
-        if(user.getIsAdmin())
-            return true;
-
-        return sessionService.getActiveSessionForUser(user.getUserId()) == null;
-    }
-
     public User authenticate(String username, String password, Logger logger, Socket clientSocket) throws IOException {
         User currentUser = userService.getByUsername(username);
         if(currentUser != null && currentUser.getPassword().equals(password)){

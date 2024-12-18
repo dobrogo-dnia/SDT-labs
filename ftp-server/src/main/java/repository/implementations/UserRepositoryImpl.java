@@ -23,7 +23,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public Optional<User> getByUsername(String username) {
+    public User getByUsername(String username) {
         User user = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username", User.class)
                 .setParameter("username", username)
                 .setMaxResults(1)
@@ -31,7 +31,7 @@ public class UserRepositoryImpl implements UserRepository {
                 .findFirst()
                 .orElse(null);
 
-        return Optional.ofNullable(user);
+        return user;
     }
 
     @Override

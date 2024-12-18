@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import model.Session;
 import repository.interfaces.SessionRepository;
 
+import java.util.Collections;
 import java.util.List;
 
 public class SessionRepositoryImpl implements SessionRepository {
@@ -48,9 +49,14 @@ public class SessionRepositoryImpl implements SessionRepository {
 
     @Override
     public List<Session> getActiveSessions() {
-        String queryText = "SELECT s FROM Session s WHERE s.isActive = true";
-        TypedQuery<Session> query = entityManager.createQuery(queryText, Session.class);
-        return query.getResultList();
+        try {
+            TypedQuery<Session> query = entityManager.createQuery(
+                    "SELECT s FROM Session s WHERE s.isActive = true", Session.class);
+            return query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
     }
 
     @Override

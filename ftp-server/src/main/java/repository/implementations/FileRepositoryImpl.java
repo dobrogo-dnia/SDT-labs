@@ -25,7 +25,7 @@ public class FileRepositoryImpl implements FileRepository {
     @Override
     public List<File> getByUserId(int userId) {
         TypedQuery<File> query = entityManager.createQuery(
-                "SELECT f FROM File WHERE f.owner.userId = :userId", File.class);
+                "SELECT f FROM File f WHERE f.owner.userId = :userId", File.class);
         query.setParameter("userId", userId);
         return query.getResultList();
     }
@@ -59,4 +59,30 @@ public class FileRepositoryImpl implements FileRepository {
         }
     }
 
+    @Override
+    public File getByPath(String filePath) {
+        TypedQuery<File> query = entityManager.createQuery(
+                "SELECT f FROM File f WHERE CONCAT(f.location, '\\', f.name) = :filePath", File.class);
+        query.setParameter("filePath", filePath);
+        return query.getResultStream().findFirst().orElse(null);
+    }
+
+    @Override
+    public void deleteById(int fileId) {
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        try {
+            File file = entityManager.find(File.class, fileId);
+            if (file != null) {
+                System.out.println("File found in DB, deleting: " + fileId);
+                entityManager.remove(file);
+            } else {
+                System.out.println("File not found in DB, ID: " + fileId);
+            }
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        }
+    }
 }

@@ -25,9 +25,8 @@ public class UserService {
     }
 
     public User getByUsername(String username) {
-        return userRepository.getByUsername(username).orElse(null);
+        return userRepository.getByUsername(username);
     }
-
 
     public List<User> getAllUsers() {
         return userRepository.getAllUsers();
@@ -41,9 +40,8 @@ public class UserService {
         return userRepository.updateUser(modifiedUser);
     }
 
+
     public void deleteById(int userId) {
         userRepository.deleteUser(userId);
-
     }
-
 }
