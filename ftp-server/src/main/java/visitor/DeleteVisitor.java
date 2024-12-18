@@ -14,14 +14,25 @@ public class DeleteVisitor implements Visitor{
 
     @Override
     public void visit(User user) {
-        if(user != null)
+        if (user != null) {
+            sessionService.getByUserId(user.getUserId())
+                    .forEach(session -> sessionService.deleteSession(session.getSessionId()));
+
+            fileService.getByUserId(user.getUserId())
+                    .forEach(file -> fileService.deleteFile(file.getFileId()));
+
             userService.deleteById(user.getUserId());
+        }
     }
 
     @Override
     public void visit(File file) {
-        if(file != null)
-            fileService.deleteFile(file.getFileId());
+        if (file != null && file.getFileId() > 0) {
+            System.out.println("Deleting file from DB with ID: " + file.getFileId());
+            fileService.deleteById(file.getFileId());
+        } else {
+            System.out.println("File is null or has invalid ID, skipping deletion.");
+        }
     }
 
     @Override
