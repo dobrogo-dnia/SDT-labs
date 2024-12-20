@@ -1,0 +1,391 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 OPR/115.0.0.0" version="25.0.3">
+  <diagram name="Сторінка-1" id="EHOrJvjLMRzK50lmoaZ_">
+    <mxGraphModel dx="1432" dy="738" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-71" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="234.8" y="120" as="sourcePoint" />
+            <mxPoint x="234.8" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-63" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.002;exitY=0.501;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="5lGT_C94pFLsxoCqDlY4-61" target="5lGT_C94pFLsxoCqDlY4-61" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="970" y="610" as="sourcePoint" />
+            <mxPoint x="1020" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-1" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="220" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="400" y="100" width="10" height="770" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-3" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="404.86" y="890" as="sourcePoint" />
+            <mxPoint x="404.86" y="870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-4" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="405.3" y="95" as="sourcePoint" />
+            <mxPoint x="405.3" y="55" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-5" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="590" y="100" width="10" height="770" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-6" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="594.72" y="890" as="sourcePoint" />
+            <mxPoint x="594.72" y="870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-7" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="594.6" y="95" as="sourcePoint" />
+            <mxPoint x="594.6" y="55" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-29" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1080" y="100" width="10" height="770" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-30" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1084.86" y="890" as="sourcePoint" />
+            <mxPoint x="1084.86" y="870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-32" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="910" y="100" width="10" height="770" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-33" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="915" y="890" as="sourcePoint" />
+            <mxPoint x="915" y="870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-34" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1084.8" y="95" as="sourcePoint" />
+            <mxPoint x="1084.8" y="55" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-35" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="753.5" y="100" width="10" height="770" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-36" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="758.36" y="890" as="sourcePoint" />
+            <mxPoint x="758.36" y="870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-37" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="914.8" y="95" as="sourcePoint" />
+            <mxPoint x="914.8" y="55" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-38" value="FTP Server" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="550" y="25" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-40" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.014;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.016;exitY=0.015;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410.00000000000006" y="210.60000000000002" as="sourcePoint" />
+            <mxPoint x="589.8399999999998" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-41" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Надсилання запиту на з&#39;єднання&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="406" y="192" width="164" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-44" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.097;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.978;exitY=0.098;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="308.59999999999997" as="sourcePoint" />
+            <mxPoint x="590.22" y="308.00000000000006" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-45" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Надсилання запиту на вхід&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="397" y="295" width="153" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-46" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.058;entryY=0.968;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.015;exitY=0.968;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" parent="1" source="5lGT_C94pFLsxoCqDlY4-5" target="5lGT_C94pFLsxoCqDlY4-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="770" as="sourcePoint" />
+            <mxPoint x="650" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-47" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Передача меню та даних користувача&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="406" y="817" width="187" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-48" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="758.3000000000001" y="95" as="sourcePoint" />
+            <mxPoint x="758.3000000000001" y="55" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-49" value="FTP Controller" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="710.5" y="25" width="96" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-50" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.005;entryY=0.133;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.026;exitY=0.133;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="314" as="sourcePoint" />
+            <mxPoint x="753" y="314" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-51" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Обробка запиту на вхід&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="598" y="290" width="120" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-52" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.033;entryY=0.799;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.001;exitY=0.799;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="753.1600000000002" y="710.0000000000001" as="sourcePoint" />
+            <mxPoint x="599.9999999999999" y="710.0000000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-53" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.034;entryY=0.866;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.001;exitY=0.799;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600.5" y="750" as="sourcePoint" />
+            <mxPoint x="753.5" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-54" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.021;entryY=0.951;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.048;exitY=0.952;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="752.81" y="840.77" as="sourcePoint" />
+            <mxPoint x="600" y="840" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-55" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Успішний вхід&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="572" y="684" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-56" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Запит файлів користувача&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="593" y="726" width="143" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-57" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Передача даних файлів&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="600" y="817" width="119" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-58" value="ServiceEngine" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="870" y="25" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-59" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.026;exitY=0.133;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="764.87" y="380" as="sourcePoint" />
+            <mxPoint x="911" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-60" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Обробка запиту на вхід&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="749" y="358" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-61" value="alt" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;fillColor=none;width=40;height=20;" parent="1" vertex="1">
+          <mxGeometry x="862.75" y="410" width="270" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-64" value="" style="endArrow=classic;html=1;rounded=0;exitX=-0.019;exitY=0.367;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1080" y="445" as="sourcePoint" />
+            <mxPoint x="920.19" y="445" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-65" value="" style="endArrow=classic;html=1;rounded=0;exitX=-0.019;exitY=0.367;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1080" y="490" as="sourcePoint" />
+            <mxPoint x="920" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-66" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;&lt;b&gt;[користувача знайдено]&lt;/b&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="918" y="400" width="132" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-67" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;&lt;b&gt;[користувача не знайдено]&lt;/b&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="917" y="445" width="143" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-68" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Отримання даних користувача&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="914.5" y="420" width="158" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-69" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Відмова у доступі&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="909.5" y="465" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-70" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.037;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.026;exitY=0.533;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="908.5" y="543" as="sourcePoint" />
+            <mxPoint x="764" y="543" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-71" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Автентифікація юзера&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="754" y="520" width="126" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-72" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.037;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.026;exitY=0.133;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="763.5" y="595" as="sourcePoint" />
+            <mxPoint x="910" y="595" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-73" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Додавання нової сесії&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="755.63" y="570" width="122.75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-77" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.037;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.026;exitY=0.133;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="921" y="390" as="sourcePoint" />
+            <mxPoint x="1080" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-78" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Пошук користувача за логіном та паролем&lt;/span&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="922" y="358" width="173" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-79" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.037;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.026;exitY=0.133;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="920" y="620" as="sourcePoint" />
+            <mxPoint x="1080" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-80" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Створення сесії&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="904" y="595" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-81" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.037;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.026;exitY=0.133;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1080" y="650" as="sourcePoint" />
+            <mxPoint x="920" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-82" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Нову сесію створено&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="911" y="624" width="123" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-83" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.037;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.026;exitY=0.133;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="764" y="780" as="sourcePoint" />
+            <mxPoint x="910" y="780" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-84" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Обробка запиту надання файлів&lt;/span&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="763.5" y="745" width="151" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-85" value="" style="strokeWidth=1;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="1055" y="10" width="60" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-86" value="Database" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1055" y="25" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-87" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.037;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.026;exitY=0.133;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="920" y="800" as="sourcePoint" />
+            <mxPoint x="1080" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-88" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Отримання даних файлів&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="920" y="775" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-89" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.037;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.026;exitY=0.133;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1080" y="824" as="sourcePoint" />
+            <mxPoint x="920" y="824" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-90" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Передача даних файлів&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="913" y="800" width="137" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-91" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.037;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.026;exitY=0.133;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="909.5" y="834" as="sourcePoint" />
+            <mxPoint x="763.5" y="834" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5lGT_C94pFLsxoCqDlY4-92" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Передача даних файлів&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="751.75" y="810" width="138.25" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-68" value="FTP Client" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="368" y="25" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-69" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="230" y="100" width="10" height="770" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-70" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="234.86" y="890" as="sourcePoint" />
+            <mxPoint x="234.86" y="870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-72" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.039;entryY=0.057;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.009;exitY=0.057;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="236" as="sourcePoint" />
+            <mxPoint x="410" y="236" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-73" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Підтвердження з&#39;єднання&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="390" y="212" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-74" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" parent="1" source="_hDlO5acoqLrmTqEBLsP-69" target="5lGT_C94pFLsxoCqDlY4-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="380" as="sourcePoint" />
+            <mxPoint x="310" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-75" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Ввід імені користувача та паролю&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="230" y="268" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-76" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.055;entryY=0.017;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.024;exitY=0.017;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="_hDlO5acoqLrmTqEBLsP-69" target="5lGT_C94pFLsxoCqDlY4-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="250" y="310" as="sourcePoint" />
+            <mxPoint x="300" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-78" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Запуск FTP-клієнта&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="237" y="90" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-79" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.115;entryY=0.052;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;exitX=-0.011;exitY=0.052;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="5lGT_C94pFLsxoCqDlY4-2" target="_hDlO5acoqLrmTqEBLsP-69" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="221" as="sourcePoint" />
+            <mxPoint x="330" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-80" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Показ дисплею FTP-клієнта&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="220" y="116" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-81" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.024;entryY=0.082;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.083;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="_hDlO5acoqLrmTqEBLsP-69" target="5lGT_C94pFLsxoCqDlY4-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="270" y="310" as="sourcePoint" />
+            <mxPoint x="320" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-82" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Ввід адреси FTP-клієнта&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="236" y="141" width="131" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-83" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.018;entryY=0.983;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.983;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" parent="1" source="5lGT_C94pFLsxoCqDlY4-2" target="_hDlO5acoqLrmTqEBLsP-69" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="80" y="630" as="sourcePoint" />
+            <mxPoint x="130" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-84" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Відображення меню та даних користувача&lt;/span&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="240" y="817" width="177" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-85" value="" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=6;" parent="1" vertex="1">
+          <mxGeometry x="388" y="170" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-87" value="" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=6;" parent="1" vertex="1">
+          <mxGeometry x="687.88" y="320" width="140" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-88" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;FTP-контролер починає процес авторизації користувача&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="692.13" y="325" width="131.5" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-89" value="" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=6;" parent="1" vertex="1">
+          <mxGeometry x="830" y="505" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-90" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Успішна або невдала автентифікація&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="832.5" y="500" width="177.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-86" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Етап встановлення з&#39;єднання&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="388" y="165" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-93" value="" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=6;" parent="1" vertex="1">
+          <mxGeometry x="698.25" y="555" width="123.5" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-95" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Реєстрація нової сесії&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="698.25" y="550" width="119.25" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-96" value="" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=6;" parent="1" vertex="1">
+          <mxGeometry x="655.75" y="640" width="208.5" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="_hDlO5acoqLrmTqEBLsP-97" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;FTP-контролер обробляє запит надання файлів користувача&lt;/span&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="661" y="647.5" width="195" height="24" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
