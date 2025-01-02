@@ -52,18 +52,14 @@ public class UserLoggedInServerState implements FtpServerState {
                 if (serverMode == null) {
                     return new FtpResponse(425, "Can't open data connection. Choose FTP server mode");
                 }
-                if(serverMode.equals(ServerMode.ACTIVE))
-                    commandHandler = new RetrieveCommandHandler(activeDataSocket, currentDirectoryPath.toString(), ftpServer);
-                else if(serverMode.equals(ServerMode.PASSIVE))
+                if(serverMode.equals(ServerMode.PASSIVE))
                     commandHandler = new RetrieveCommandHandler(passiveDataServerSocket.accept(), currentDirectoryPath.toString(), ftpServer);
                 break;
             case "STOR":
                 if (serverMode == null) {
                     return new FtpResponse(425, "Can't open data connection. Choose FTP server mode");
                 }
-                if(serverMode.equals(ServerMode.ACTIVE))
-                    commandHandler = new StorCommandHandler(activeDataSocket, currentDirectoryPath.toString(), ftpServer);
-                else if (serverMode.equals(ServerMode.PASSIVE))
+                if (serverMode.equals(ServerMode.PASSIVE))
                     commandHandler = new StorCommandHandler(passiveDataServerSocket.accept(), currentDirectoryPath.toString(), ftpServer);
                 break;
             case "DELE":
@@ -76,19 +72,18 @@ public class UserLoggedInServerState implements FtpServerState {
                 if (serverMode == null) {
                     return new FtpResponse(425, "Can't open data connection. Choose FTP server mode");
                 }
-                if(serverMode.equals(ServerMode.ACTIVE))
-                    commandHandler = new ListCommandHandler(activeDataSocket, user.getHomeDirectory());
-                else if(serverMode.equals(ServerMode.PASSIVE))
+                if(serverMode.equals(ServerMode.PASSIVE))
                     commandHandler = new ListCommandHandler(passiveDataServerSocket.accept(), user.getHomeDirectory());
                 break;
             case "PWD":
-                commandHandler = new PwdCommandHandler(user.getHomeDirectory());
+                commandHandler = new PwdCommandHandler(currentDirectoryPath.toString());
                 break;
             case "CWD":
                 commandHandler = new CwdCommandHandler(currentDirectoryPath);
                 break;
             case "CDUP":
-                return new FtpResponse(550, "Permission denied");
+                commandHandler = new CdupCommandHandler(currentDirectoryPath);
+                break;
             case "ALTER":
                 commandHandler = new AlterCommandHandler();
                 break;

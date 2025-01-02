@@ -30,7 +30,7 @@ public class StorCommandHandler extends BaseCommandHandler {
     @Override
     protected FtpResponse executeCommand(String arguments, User user) throws IOException {
         if (arguments == null || arguments.isEmpty()) {
-            return new FtpResponse(501, "Syntax error in parameters or arguments.");
+            return new FtpResponse(501, "Syntax error in parameters or arguments");
         }
 
         String filePath = getFilePathFromArgs(arguments);
@@ -53,15 +53,16 @@ public class StorCommandHandler extends BaseCommandHandler {
             bufferedOutputStream.flush();
             System.out.println("File received successfully: " + filePath);
 
-            createFileRecordInDb(user, filePath);
-            return new FtpResponse(226, "File transfer complete.");
+            createFileRecordInDb(user, filePath, "644");
+
+            return new FtpResponse(226, "File transfer complete");
         } catch (IOException | InterruptedException e) {
             System.err.println("Error during STOR: " + e.getMessage());
-            return new FtpResponse(451, "Error during file upload.");
+            return new FtpResponse(451, "Error during file upload");
         } finally {
             if (!dataSocket.isClosed()) {
                 dataSocket.close();
-                System.out.println("Data socket closed.");
+                System.out.println("Data socket closed");
             }
         }
     }
@@ -85,13 +86,15 @@ public class StorCommandHandler extends BaseCommandHandler {
         }
     }
 
-    private void createFileRecordInDb(User user, String filePath) {
+    private void createFileRecordInDb(User user, String filePath, String permissions) {
         try {
             String fileName = Paths.get(filePath).getFileName().toString();
             String fileLocation = Paths.get(filePath).getParent().toString();
 
-            File newFile = new File(fileName, fileLocation, user);
+            File newFile = new File(fileName, fileLocation, user, permissions);
+
             newFile.accept(new CreateVisitor());
+
             System.out.println("File record created in database: " + newFile);
         } catch (Exception e) {
             System.err.println("Error while creating file record in database: " + e.getMessage());

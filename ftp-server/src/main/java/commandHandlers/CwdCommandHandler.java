@@ -20,10 +20,11 @@ public class CwdCommandHandler extends BaseCommandHandler{
 
     @Override
     protected FtpResponse executeCommand(String arguments, User user) throws IOException {
-        if(arguments == null)
+        if (arguments == null) {
             return new FtpResponse(501, "Syntax error in parameters or arguments");
+        }
 
-        File homeDir = new File(user.getHomeDirectory()).getCanonicalFile();
+        File baseDir = new File("D:/ftp-server/DataStorage");
         File currentDir = new File(currentDirectoryPath.toString());
         File newDir;
 
@@ -33,15 +34,16 @@ public class CwdCommandHandler extends BaseCommandHandler{
             newDir = new File(currentDir, arguments);
         }
 
-        if (!newDir.getAbsolutePath().startsWith(homeDir.getAbsolutePath())) {
-            return new FtpResponse(550, "Access denied: Cannot go above home directory");
+        if (!newDir.getAbsolutePath().startsWith(baseDir.getAbsolutePath())) {
+            return new FtpResponse(550, "Access denied: Cannot go above base directory");
         }
 
         if (newDir.exists() && newDir.isDirectory()) {
             currentDirectoryPath.setLength(0);
             currentDirectoryPath.append(newDir.getAbsolutePath());
             return new FtpResponse(250, "Directory successfully changed");
-        } else
+        } else {
             return new FtpResponse(550, "Failed to change directory");
+        }
     }
 }

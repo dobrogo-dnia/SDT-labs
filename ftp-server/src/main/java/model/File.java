@@ -21,12 +21,16 @@ public class File implements Visitable {
     @JoinColumn(name = "ownerId", nullable = false)
     private User owner;
 
+    @Column(nullable = false)
+    private String permissions;
+
     public File() {}
 
-    public File(String name, String location, User owner) {
+    public File(String name, String location, User owner, String permissions) {
         this.name = name;
         this.location = location;
         this.owner = owner;
+        this.permissions = "777";
     }
 
     public int getFileId() {
@@ -45,9 +49,17 @@ public class File implements Visitable {
         return owner;
     }
 
+    public String getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(String permissions) {
+        this.permissions = permissions;
+    }
+
     @Override
     public String toString() {
-        return "fileId - " + fileId + "; name - " + name + "; location -" + location + "; owner - " + owner;
+        return "fileId - " + fileId + "; name - " + name + "; location -" + location + "; owner - " + owner + "; permissions - " + permissions;
     }
 
     @Override

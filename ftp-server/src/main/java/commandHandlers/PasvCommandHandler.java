@@ -26,7 +26,7 @@ public class PasvCommandHandler extends BaseCommandHandler {
     @Override
     protected FtpResponse executeCommand(String arguments, User user) throws IOException {
         if (passiveSocket == null || passiveSocket.isClosed()) {
-            return new FtpResponse(425, "Cannot enter passive mode. Data connection unavailable.");
+            return new FtpResponse(425, "Cannot enter passive mode. Data connection unavailable");
         }
 
         String ip = "127,0,0,1";

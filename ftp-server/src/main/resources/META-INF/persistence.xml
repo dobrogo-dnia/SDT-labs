@@ -6,7 +6,7 @@
     <persistence-unit name="myPersistenceUnit">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ftp-server0.0"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ftp_server_new"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>
             <property name="jakarta.persistence.jdbc.password" value="1111"/>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

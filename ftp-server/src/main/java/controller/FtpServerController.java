@@ -68,6 +68,10 @@ public class FtpServerController {
         return globalSpeedLimit;
     }
 
+    public void resetGlobalSpeedLimit() {
+        this.globalSpeedLimit = 0;
+    }
+
     public boolean setUserSpeedLimit(String username, int limit) {
         if (checkIfUserExist(username)) {
             userSpeedLimits.put(username, limit);
@@ -79,5 +83,13 @@ public class FtpServerController {
 
     public int getUserSpeedLimit(String username) {
         return userSpeedLimits.getOrDefault(username, globalSpeedLimit);
+    }
+
+    public boolean resetUserSpeedLimit(String username) {
+        if (checkIfUserExist(username)) {
+            userSpeedLimits.put(username, 0);
+            return true;
+        }
+        return false;
     }
 }

@@ -6,9 +6,11 @@ import service.UserService;
 import visitor.CreateVisitor;
 
 import java.io.IOException;
+import java.io.File;
 
 public class CreateCommandHandler extends BaseCommandHandler {
     private final UserService userService = UserService.getUserService();
+    private static final String BASE_DIRECTORY = "D:/ftp-server/DataStorage";
 
     @Override
     protected boolean authorize(User user) {
@@ -34,6 +36,15 @@ public class CreateCommandHandler extends BaseCommandHandler {
 
         User newUser = new User (username, password, isAdmin);
         newUser.accept(new CreateVisitor());
+        String userDirectoryPath = BASE_DIRECTORY + "/" + username;
+        File userDirectory = new File(userDirectoryPath);
+        if (!userDirectory.exists()) {
+            boolean directoryCreated = userDirectory.mkdirs();
+            if (!directoryCreated) {
+                return new FtpResponse(550, "Failed to create user directory");
+            }
+        }
+
         return new FtpResponse(230, "User successfully created");
     }
 }

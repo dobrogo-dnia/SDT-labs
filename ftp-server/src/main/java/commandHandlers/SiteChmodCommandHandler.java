@@ -2,13 +2,12 @@ package commandHandlers;
 
 import myFtpServer.protocol.FtpResponse;
 import model.User;
-
-import java.util.HashMap;
-import java.util.Map;
+import model.File;
+import service.FileService;
 
 public class SiteChmodCommandHandler extends BaseCommandHandler {
 
-    private static final Map<String, String> filePermissions = new HashMap<>();
+    private final FileService fileService = FileService.getFileService();
 
     @Override
     protected boolean authorize(User user) {
@@ -30,15 +29,17 @@ public class SiteChmodCommandHandler extends BaseCommandHandler {
         String fileName = args[1];
 
         if (!permissions.matches("[0-7]{3}")) {
-            return new FtpResponse(501, "Invalid permissions format: must be 3 digits (e.g., 644).");
+            return new FtpResponse(501, "Invalid permissions format: must be 3 digits (e.g., 644)");
         }
 
-        filePermissions.put(fileName, permissions);
+        File file = fileService.getFileByUserAndFileName(user, fileName);
+        if (file == null) {
+            return new FtpResponse(550, "File not found: " + fileName);
+        }
+
+        file.setPermissions(permissions);
+        fileService.updateFile(file);
 
         return new FtpResponse(200, "Permissions for " + fileName + " set to " + permissions);
-    }
-
-    public static String getFilePermissions(String fileName) {
-        return filePermissions.getOrDefault(fileName, "644");
     }
 }

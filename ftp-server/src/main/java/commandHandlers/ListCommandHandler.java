@@ -33,7 +33,7 @@ public class ListCommandHandler extends BaseCommandHandler {
             File[] files = directory.listFiles();
 
             if (files == null || files.length == 0) {
-                dataOutput.println("Directory is empty.");
+                dataOutput.println("Directory is empty");
             } else {
                 for (File file : files) {
                     dataOutput.println(getFileInfo(file));
@@ -42,14 +42,14 @@ public class ListCommandHandler extends BaseCommandHandler {
 
             dataOutput.flush();
             dataSocket.shutdownOutput();
-            System.out.println("Directory listing sent successfully.");
+            System.out.println("Directory listing sent successfully");
 
             return new FtpResponse(226, "Transfer complete");
         } catch (IOException e) {
             System.err.println("Error during LIST command: " + e.getMessage());
-            return new FtpResponse(425, "Data connection failed.");
+            return new FtpResponse(425, "Data connection failed");
         } finally {
-            System.out.println("Data connection not forcibly closed.");
+            System.out.println("Data connection not forcibly closed");
         }
     }
 

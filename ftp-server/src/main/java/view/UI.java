@@ -43,7 +43,7 @@ public class UI {
         writer.newLine();
 
         if(content.isEmpty()) {
-            writer.write("File is empty.");
+            writer.write("File is empty");
             writer.newLine();
         } else {
             for(String line : content) {

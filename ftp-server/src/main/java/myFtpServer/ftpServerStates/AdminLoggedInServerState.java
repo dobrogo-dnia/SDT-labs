@@ -83,9 +83,7 @@ public class AdminLoggedInServerState implements FtpServerState {
                 commandHandler = new EpsvCommandHandler(passiveDataServerSocket);
                 break;
             case "RETR":
-                if(serverMode.equals(ServerMode.ACTIVE))
-                    commandHandler = new RetrieveCommandHandler(activeDataSocket, currentDirectoryPath.toString(), ftpServer);
-                else if(serverMode.equals(ServerMode.PASSIVE))
+                if(serverMode.equals(ServerMode.PASSIVE))
                     commandHandler = new RetrieveCommandHandler(passiveDataServerSocket.accept(), currentDirectoryPath.toString(), ftpServer);
                 else
                     return new FtpResponse(425, "Can't open data connection. Choose FTP server mode");
@@ -94,8 +92,6 @@ public class AdminLoggedInServerState implements FtpServerState {
                 if (serverMode == null) {
                     return new FtpResponse(425, "Can't open data connection. Choose FTP server mode");
                 }
-                if(serverMode.equals(ServerMode.ACTIVE))
-                    commandHandler = new StorCommandHandler(activeDataSocket, currentDirectoryPath.toString(), ftpServer);
                 else if (serverMode.equals(ServerMode.PASSIVE))
                     commandHandler = new StorCommandHandler(passiveDataServerSocket.accept(), currentDirectoryPath.toString(), ftpServer);
                 break;
@@ -112,9 +108,7 @@ public class AdminLoggedInServerState implements FtpServerState {
                 if (serverMode == null) {
                     return new FtpResponse(425, "Can't open data connection. Choose FTP server mode");
                 }
-                if(serverMode.equals(ServerMode.ACTIVE))
-                    commandHandler = new ListCommandHandler(activeDataSocket, user.getHomeDirectory());
-                else if(serverMode.equals(ServerMode.PASSIVE))
+                if(serverMode.equals(ServerMode.PASSIVE))
                     commandHandler = new ListCommandHandler(passiveDataServerSocket.accept(), user.getHomeDirectory());
                 break;
             case "CWD":

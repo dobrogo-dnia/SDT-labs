@@ -55,7 +55,7 @@ public class FtpServer {
     private void handleClient(Socket clientSocket) {
         try {
             if (!controller.newUserCanConnect(MAX_CONNECTION_NUM)) {
-                ui.displayFtpResponse(new FtpResponse(421, "Connection limit reached. Please try again later."));
+                ui.displayFtpResponse(new FtpResponse(421, "Connection limit reached. Please try again later"));
                 Thread.sleep(30000);
                 return;
             }
@@ -66,7 +66,7 @@ public class FtpServer {
             while (true) {
                 String userInput = ui.acceptUserInput();
                 if (userInput == null) {
-                    System.out.println("Client disconnected.");
+                    System.out.println("Client disconnected");
                     break;
                 }
                 if (userInput.isEmpty()) {
@@ -82,7 +82,7 @@ public class FtpServer {
                 ui.displayFtpResponse(ftpResponse);
 
                 if (ftpResponse.getStatusCode() == 221) {
-                    System.out.println("221 Service closing control connection.");
+                    System.out.println("221 Service closing control connection");
                     break;
                 }
             }
@@ -106,12 +106,12 @@ public class FtpServer {
 
             if (clientSocket != null && !clientSocket.isClosed()) {
                 clientSocket.close();
-                System.out.println("Client socket closed.");
+                System.out.println("Client socket closed");
             }
 
             if (ui != null) {
                 ui.closeStreams();
-                System.out.println("UI streams closed.");
+                System.out.println("UI streams closed");
             }
         } catch (IOException e) {
             System.err.println("Error cleaning up resources: " + e.getMessage());

@@ -21,7 +21,7 @@ public class TypeCommandHandler extends BaseCommandHandler {
     @Override
     protected FtpResponse executeCommand(String arguments, User user) throws IOException {
         if (arguments == null || arguments.isEmpty()) {
-            return new FtpResponse(501, "Syntax error in parameters or arguments.");
+            return new FtpResponse(501, "Syntax error in parameters or arguments");
         }
 
         switch (arguments.toUpperCase()) {
@@ -32,7 +32,7 @@ public class TypeCommandHandler extends BaseCommandHandler {
                 ftpServer.setTransferType("I");
                 return new FtpResponse(200, "Type set to I (Binary mode)");
             default:
-                return new FtpResponse(504, "Command not implemented for that parameter.");
+                return new FtpResponse(504, "Command not implemented for that parameter");
         }
     }
 }

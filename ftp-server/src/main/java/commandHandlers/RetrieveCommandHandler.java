@@ -1,18 +1,19 @@
 package commandHandlers;
 
+import model.File;
 import model.User;
 import myFtpServer.FtpServer;
 import myFtpServer.protocol.FtpResponse;
+import service.FileService;
 
 import java.io.*;
 import java.net.Socket;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class RetrieveCommandHandler extends BaseCommandHandler {
     private final Socket dataSocket;
     private final String currentDirectory;
     private final FtpServer ftpServer;
+    private final FileService fileService = FileService.getFileService();
 
     public RetrieveCommandHandler(Socket dataSocket, String currentDirectory, FtpServer ftpServer) {
         this.dataSocket = dataSocket;
@@ -31,18 +32,24 @@ public class RetrieveCommandHandler extends BaseCommandHandler {
             return new FtpResponse(501, "Syntax error in parameters or arguments");
         }
 
-        String filePath = getFilePath(arguments);
-        java.io.File file = new java.io.File(filePath);
+        File file = fileService.getFileByUserAndFileName(user, arguments);
+        if (file == null) {
+            return new FtpResponse(550, "File not found");
+        }
 
-        if (!file.exists() || !file.isFile()) {
+        if (!canUserReadFile(user, file)) {
+            return new FtpResponse(550, "Permission denied");
+        }
+
+        java.io.File systemFile = new java.io.File(file.getLocation(), file.getName());
+        if (!systemFile.exists() || !systemFile.isFile()) {
             return new FtpResponse(550, "File not found or is not a valid file");
         }
 
-        System.out.println("RETR command received. Sending file: " + filePath);
+        System.out.println("RETR command received. Sending file: " + systemFile.getPath());
 
-        try (BufferedInputStream fileInput = new BufferedInputStream(new FileInputStream(file));
-             BufferedOutputStream dataOutput = new BufferedOutputStream(dataSocket.getOutputStream());
-             Socket socket = dataSocket) {
+        try (BufferedInputStream fileInput = new BufferedInputStream(new FileInputStream(systemFile));
+             BufferedOutputStream dataOutput = new BufferedOutputStream(dataSocket.getOutputStream())) {
 
             byte[] buffer = new byte[4096];
             int bytesRead;
@@ -62,7 +69,7 @@ public class RetrieveCommandHandler extends BaseCommandHandler {
 
             dataOutput.flush();
             dataSocket.shutdownOutput();
-            System.out.println("File sent successfully: " + filePath);
+            System.out.println("File sent successfully: " + systemFile.getPath());
             return new FtpResponse(226, "File transfer complete");
 
         } catch (IOException | InterruptedException e) {
@@ -86,12 +93,12 @@ public class RetrieveCommandHandler extends BaseCommandHandler {
         }
     }
 
-    private String getFilePath(String arguments) {
-        Path argumentPath = Paths.get(arguments);
-        if (argumentPath.isAbsolute()) {
-            return argumentPath.normalize().toString();
-        } else {
-            return Paths.get(currentDirectory, arguments).normalize().toString();
-        }
+    private boolean canUserReadFile(User user, File file) {
+        String permissions = file.getPermissions();
+        boolean isOwner = file.getOwner().equals(user);
+
+        return isOwner
+                ? (Character.getNumericValue(permissions.charAt(0)) & 4) != 0
+                : (Character.getNumericValue(permissions.charAt(2)) & 4) != 0;
     }
 }
