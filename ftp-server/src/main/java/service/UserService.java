@@ -7,10 +7,17 @@ import repository.interfaces.UserRepository;
 import java.util.List;
 
 public class UserService {
-    UserRepository userRepository;
+    private final UserRepository userRepository;
+    private static UserService userService;
 
-    public UserService() {
+    private UserService() {
         this.userRepository = new UserRepositoryImpl();
+    }
+
+    public static UserService getUserService() {
+        if(userService == null)
+            userService = new UserService();
+        return userService;
     }
 
     public User getById(int id) {
@@ -18,8 +25,9 @@ public class UserService {
     }
 
     public User getByUsername(String username) {
-        return userRepository.getByUsername(username).get();
+        return userRepository.getByUsername(username).orElse(null);
     }
+
 
     public List<User> getAllUsers() {
         return userRepository.getAllUsers();

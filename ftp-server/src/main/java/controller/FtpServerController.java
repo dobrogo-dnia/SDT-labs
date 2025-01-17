@@ -1,55 +1,55 @@
 package controller;
 
-import model.File;
+import logger.Logger;
 import model.Session;
 import model.User;
-import service.AuthenticationService;
-import service.FileService;
-import service.SessionService;
-import service.UserService;
+import service.*;
 
+import java.io.*;
+import java.net.Socket;
 import java.util.List;
 
 public class FtpServerController {
-    private final UserService userService;
-    private final SessionService sessionService;
-    private final FileService fileService;
-    private final AuthenticationService authenticationService;
+    private final SessionService sessionService = SessionService.getSessionService();
+    private final AuthenticationService authenticationService = AuthenticationService.getAuthenticationService();
 
-    public FtpServerController() {
-        this.sessionService = new SessionService();
-        this.fileService = new FileService();
-        this.userService = new UserService();
-        this.authenticationService = new AuthenticationService(userService, sessionService);
+    public boolean newUserCanConnect(int maxConnectionNum) {
+        List<Session> activeSessions = sessionService.getActiveSessions();
+        int activeSessionsNum = activeSessions.size();
+        return activeSessionsNum < maxConnectionNum;
     }
 
-    public void processLogin(String username, String password) {
-        authenticationService.authenticate(username, password);
-    }
-
-    public void processSignOut(String username) {
-        authenticationService.signOut(username);
-    }
-
-    public User createUserByAdmin(String adminUsername, String username, String password, boolean isAdmin, String homeLocation) {
-        User currentUser = userService.getByUsername(adminUsername);
-        if (currentUser != null || currentUser.getIsAdmin()) {
-            User newUser = new User(username, password, isAdmin, homeLocation);
-            return userService.createUser(newUser);
+    public boolean checkIfUserExist(String username) {
+        try {
+            return authenticationService.userExists(username);
+        } catch (IllegalArgumentException e) {
+            return false;
         }
-        return null;
     }
 
-    public List<File> getAllUserFiles(String username) {
-        User user = userService.getByUsername(username);
-        List<File> files = fileService.getAllUserFiles(user);
-        return files;
+    public User processLogin(String username, String password, Logger logger, Socket clientSocket) throws IOException {
+        if (!authenticationService.userExists(username)) {
+            logger.writeErrorEventToFile(clientSocket.getInetAddress().toString(), username, "User does not exist");
+            return null;
+        }
+
+        User user = authenticationService.authenticate(username, password, logger, clientSocket);
+        if (user == null) {
+            logger.writeErrorEventToFile(clientSocket.getInetAddress().toString(), username, "Authentication failed");
+        }
+
+        return user;
     }
 
-    public List<Session> getAllSessionsForUser(String username) {
-        User user = userService.getByUsername(username);
-        List<Session> sessions = sessionService.getAllSessionsForUser(user);
-        return sessions;
+    public void processLogOut(String username) {
+        if (authenticationService.userExists(username)) {
+            authenticationService.signOut(username);
+        }
     }
 
+    public void deactivateSessionIfActive(int userId) {
+        Session activeSession = sessionService.getActiveSessionForUser(userId);
+        if(activeSession != null)
+            sessionService.modifySessionStatus(activeSession.getSessionId());
+    }
 }
