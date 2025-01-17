@@ -5,6 +5,7 @@ import model.User;
 import repository.interfaces.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public class UserRepositoryImpl implements UserRepository {
     @PersistenceContext
@@ -16,13 +17,13 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User getById(int userId) {
+    public Optional<User> getById(int userId) {
         User user = entityManager.find(User.class, userId);
-        return user;
+        return Optional.ofNullable(user);
     }
 
     @Override
-    public User getByUsername(String username) {
+    public Optional<User> getByUsername(String username) {
         User user = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username", User.class)
                 .setParameter("username", username)
                 .setMaxResults(1)
@@ -30,7 +31,7 @@ public class UserRepositoryImpl implements UserRepository {
                 .findFirst()
                 .orElse(null);
 
-        return user;
+        return Optional.ofNullable(user);
     }
 
     @Override

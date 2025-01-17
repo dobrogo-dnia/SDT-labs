@@ -5,6 +5,7 @@ import model.File;
 import repository.interfaces.FileRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public class FileRepositoryImpl implements FileRepository {
     @PersistenceContext
@@ -16,9 +17,9 @@ public class FileRepositoryImpl implements FileRepository {
     }
 
     @Override
-    public File getById(int fileId) {
+    public Optional<File> getById(int fileId) {
         File file = entityManager.find(File.class, fileId);
-        return file;
+        return Optional.ofNullable(file);
     }
 
     @Override
@@ -48,7 +49,7 @@ public class FileRepositoryImpl implements FileRepository {
     }
 
     @Override
-    public void deleteById(int fileId) {
+    public void deleteFile(int fileId) {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
         File file = entityManager.find(File.class, fileId);
