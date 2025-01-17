@@ -16,15 +16,14 @@ public class Logger {
         fileWriter = new BufferedWriter(new FileWriter(LOG_FILE_PATH, true));
     }
 
-    public static Logger getLogger() throws IOException{
-        if(logger == null)
+    public static Logger getLogger() throws IOException {
+        if (logger == null)
             logger = new Logger();
         return logger;
     }
 
     public void writeLogInEventToFile(String clientAddress, String username) throws IOException {
-        LogMessage newLog = new LogMessage
-                .ConnectionLogBuilder(LogType.LOG_IN_TYPE)
+        LogMessage newLog = new ConnectionLogBuilder(LogType.LOG_IN_TYPE)
                 .setClientAddress(clientAddress)
                 .setUsername(username)
                 .setEventTime(LocalDateTime.now().withSecond(0).withNano(0))
@@ -36,4 +35,35 @@ public class Logger {
         fileWriter.flush();
     }
 
+    public void writeLogOutEventToFile(String clientAddress, String username) throws IOException {
+        LogMessage newLog = new ConnectionLogBuilder(LogType.LOG_OUT_TYPE)
+                .setClientAddress(clientAddress)
+                .setUsername(username)
+                .setEventTime(LocalDateTime.now().withSecond(0).withNano(0))
+                .build();
+
+        String logMessageText = newLog.getResultMessage();
+        fileWriter.write(logMessageText);
+        fileWriter.newLine();
+        fileWriter.flush();
+    }
+
+    public void writeErrorEventToFile(String clientAddress, String username, String errorMessage) {
+        LogMessage newLog = new ConnectionLogBuilder(LogType.ERROR_TYPE)
+                .setClientAddress(clientAddress)
+                .setUsername(username)
+                .setEventTime(LocalDateTime.now().withSecond(0).withNano(0))
+                .setAdditionalInfo(errorMessage)
+                .build();
+
+        String logMessageText = newLog.getResultMessage();
+
+        try {
+            fileWriter.write(logMessageText);
+            fileWriter.newLine();
+            fileWriter.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
