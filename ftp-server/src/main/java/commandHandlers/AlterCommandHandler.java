@@ -43,13 +43,19 @@ public class AlterCommandHandler extends BaseCommandHandler {
     }
 
     private FtpResponse changePassword(User user, String newPassword) {
-        boolean passwordsTheSame  = user.getPassword().equals(newPassword);
-        if(passwordsTheSame)
+        if (user == null || user.getPassword() == null) {
+            return new FtpResponse(501, "User is not properly authenticated or password is invalid");
+        }
+
+        boolean passwordsTheSame = user.getPassword().equals(newPassword);
+        if (passwordsTheSame) {
             return new FtpResponse(501, "Syntax error in parameters or arguments. Password is the same");
+        }
 
         UserLoggedInServerState.getUserCaretaker(user.getUserId()).saveNewMemento(user.saveToMemento());
         user.setPassword(newPassword);
         userService.updateUser(user);
+
         return new FtpResponse(200, "User successfully updated");
     }
 }

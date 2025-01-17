@@ -15,7 +15,7 @@ import java.net.Socket;
 
 public class FtpServer {
     private static final int PORT = 21;
-    private static final int MAX_CONNECTION_NUM = 10;
+    private static final int MAX_CONNECTION_NUM = 5;
     private final FtpServerController controller = new FtpServerController();
     private Socket clientSocket;
     private UI ui;
@@ -28,61 +28,93 @@ public class FtpServer {
     }
 
     public void start() {
-        try {
-            ServerSocket comandServerSocket = new ServerSocket(PORT);
+        try (ServerSocket commandServerSocket = new ServerSocket(PORT)) {
             System.out.println("FTP server started on port " + PORT);
 
             while (true) {
-                clientSocket = comandServerSocket.accept();
-                System.out.println("Client connected: " + clientSocket.getInetAddress().getHostAddress());
+                try {
+                    clientSocket = commandServerSocket.accept();
+                    clientSocket.setSoTimeout(300000);
+                    System.out.println("Client connected: " + clientSocket.getInetAddress().getHostAddress());
 
-                ui = new UI(clientSocket.getInputStream(), clientSocket.getOutputStream());
-                serverState = new NotLoggedInServerState(this);
-                Thread clientThread = new Thread(() -> handleClient(clientSocket));
-                clientThread.start();
+                    ui = new UI(clientSocket.getInputStream(), clientSocket.getOutputStream());
+                    serverState = new NotLoggedInServerState(this);
+
+                    Thread clientThread = new Thread(() -> handleClient(clientSocket));
+                    clientThread.start();
+                } catch (IOException e) {
+                    System.err.println("Error accepting client connection: " + e.getMessage());
+                }
             }
         } catch (IOException e) {
+            System.err.println("Error starting FTP server: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     private void handleClient(Socket clientSocket) {
         try {
-            if(!controller.newUserCanConnect(MAX_CONNECTION_NUM)){
-                ui.displayFtpResponse(new FtpResponse(421, "Connection limit reached, please try again later"));
+            if (!controller.newUserCanConnect(MAX_CONNECTION_NUM)) {
+                ui.displayFtpResponse(new FtpResponse(421, "Connection limit reached. Please try again later"));
+                Thread.sleep(30000);
                 return;
             }
 
             ui.displayFtpResponse(new FtpResponse(220, "Successfully connected"));
 
             currentUser = new User();
-            while(true) {
+            while (true) {
                 String userInput = ui.acceptUserInput();
-                if(userInput == null || userInput.isEmpty())
+                if (userInput == null) {
+                    System.out.println("Client disconnected");
                     break;
+                }
+                if (userInput.isEmpty()) {
+                    continue;
+                }
 
-                System.out.println(userInput);
+                System.out.println("Received input: " + userInput);
+
                 FtpRequest ftpRequest = new FtpRequest(userInput);
                 FtpResponse ftpResponse = handleCommands(currentUser, ftpRequest);
-                System.out.println(ftpResponse.toString());
+
+                System.out.println("Sending response: " + ftpResponse.toString());
                 ui.displayFtpResponse(ftpResponse);
-                if(ftpResponse.getStatusCode() == 221)
+
+                if (ftpResponse.getStatusCode() == 221) {
+                    System.out.println("221 Service closing control connection");
                     break;
+                }
             }
         } catch (IOException e) {
+            System.err.println("I/O Error handling client: " + e.getMessage());
             logger.writeErrorEventToFile(clientSocket.getInetAddress().getHostAddress(), currentUser.getUsername(), e.getMessage());
-            e.printStackTrace();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.err.println("Thread interrupted: " + e.getMessage());
         } finally {
-            try {
-                if(currentUser != null) {
-                    controller.deactivateSessionIfActive(currentUser.getUserId());
-                    logger.writeLogOutEventToFile(clientSocket.getInetAddress().getHostAddress(), currentUser.getUsername());
-                }
-                clientSocket.close();
-                ui.closeStreams();
-            } catch (IOException e) {
-                e.printStackTrace();
+            cleanUpResources();
+        }
+    }
+
+    private void cleanUpResources() {
+        try {
+            if (currentUser != null) {
+                controller.deactivateSessionIfActive(currentUser.getUserId());
+                logger.writeLogOutEventToFile(clientSocket.getInetAddress().getHostAddress(), currentUser.getUsername());
             }
+
+            if (clientSocket != null && !clientSocket.isClosed()) {
+                clientSocket.close();
+                System.out.println("Client socket closed");
+            }
+
+            if (ui != null) {
+                ui.closeStreams();
+                System.out.println("UI streams closed");
+            }
+        } catch (IOException e) {
+            System.err.println("Error cleaning up resources: " + e.getMessage());
         }
     }
 
@@ -102,6 +134,16 @@ public class FtpServer {
         currentUser.setAdmin(loggedInUser.getIsAdmin());
     }
 
+    private String transferType = "I";
+
+    public String getTransferType() {
+        return transferType;
+    }
+
+    public void setTransferType(String transferType) {
+        this.transferType = transferType;
+    }
+
     public Socket getClientSocket() {
         return clientSocket;
     }
@@ -110,6 +152,7 @@ public class FtpServer {
         return controller;
     }
 
-    public UI getUi() { return ui; }
-
+    public UI getUi() {
+        return ui;
+    }
 }

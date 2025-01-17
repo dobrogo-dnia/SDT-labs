@@ -7,7 +7,10 @@ import service.*;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FtpServerController {
     private final SessionService sessionService = SessionService.getSessionService();
@@ -37,7 +40,6 @@ public class FtpServerController {
         if (user == null) {
             logger.writeErrorEventToFile(clientSocket.getInetAddress().toString(), username, "Authentication failed");
         }
-
         return user;
     }
 
@@ -51,5 +53,43 @@ public class FtpServerController {
         Session activeSession = sessionService.getActiveSessionForUser(userId);
         if(activeSession != null)
             sessionService.modifySessionStatus(activeSession.getSessionId());
+    }
+
+    private final Map<String, Integer> userSpeedLimits = Collections.synchronizedMap(new HashMap<>());
+
+    private int globalSpeedLimit = 0;
+
+    public void setGlobalSpeedLimit(int limit) {
+        this.globalSpeedLimit = limit;
+        System.out.println("Global speed limit set to " + limit + " KB/s.");
+    }
+
+    public int getGlobalSpeedLimit() {
+        return globalSpeedLimit;
+    }
+
+    public void resetGlobalSpeedLimit() {
+        this.globalSpeedLimit = 0;
+    }
+
+    public boolean setUserSpeedLimit(String username, int limit) {
+        if (checkIfUserExist(username)) {
+            userSpeedLimits.put(username, limit);
+            System.out.println("Speed limit for user " + username + " set to " + limit + " KB/s.");
+            return true;
+        }
+        return false;
+    }
+
+    public int getUserSpeedLimit(String username) {
+        return userSpeedLimits.getOrDefault(username, globalSpeedLimit);
+    }
+
+    public boolean resetUserSpeedLimit(String username) {
+        if (checkIfUserExist(username)) {
+            userSpeedLimits.put(username, 0);
+            return true;
+        }
+        return false;
     }
 }

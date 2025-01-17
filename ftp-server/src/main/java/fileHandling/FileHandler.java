@@ -12,14 +12,18 @@ public class FileHandler {
 
     public static List<String> getLogFileContent() throws IOException {
         File logFile = new File(LOG_FILE_PATH);
-        BufferedReader fileReader = new BufferedReader(new FileReader(logFile));
-        List<String> fileContent = new ArrayList<>();
-        String newLine;
-        while((newLine = fileReader.readLine()) != null) {
-            fileContent.add(newLine);
-        }
-        fileReader.close();
 
-        return fileContent;
+        try (BufferedReader fileReader = new BufferedReader(new FileReader(logFile))) {
+            List<String> lastLines = new ArrayList<>();
+            String newLine;
+
+            while ((newLine = fileReader.readLine()) != null) {
+                lastLines.add(newLine);
+                if (lastLines.size() > 15) {
+                    lastLines.remove(0);
+                }
+            }
+            return lastLines;
+        }
     }
 }

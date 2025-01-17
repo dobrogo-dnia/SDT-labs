@@ -11,5 +11,6 @@ public interface FileRepository {
     File createFile(File file);
     File updateFile(File modifiedFile);
     void deleteFile(int fileId);
-
+    File getByPath(String filePath);
+    void deleteById(int fileId);
 }

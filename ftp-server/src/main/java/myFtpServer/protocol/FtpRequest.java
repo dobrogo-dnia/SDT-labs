@@ -20,4 +20,3 @@ public class FtpRequest {
         return arguments;
     }
 }
-

@@ -24,34 +24,69 @@ public class DeleCommandHandler extends BaseCommandHandler {
 
     @Override
     protected FtpResponse executeCommand(String arguments, User user) throws IOException {
-        if(arguments == null || arguments.isEmpty())
+        if (arguments == null || arguments.isEmpty()) {
             return new FtpResponse(501, "Syntax error in parameters or arguments");
+        }
 
         String filePath = getFilePathFromArgs(arguments);
         File fileToDelete = new File(filePath);
 
-        if(!fileToDelete.exists())
+        if (!fileToDelete.exists()) {
             return new FtpResponse(404, "File not found");
+        }
 
-        if(fileToDelete.isDirectory())
+        if (fileToDelete.isDirectory()) {
             return new FtpResponse(550, "Permission denied");
+        }
+
+        model.File fileModel = fileService.getFileByUserAndFileName(user, fileToDelete.getName());
+        if (fileModel == null) {
+            return new FtpResponse(404, "File not found in database");
+        }
+
+        if (!hasWritePermission(user, fileModel)) {
+            return new FtpResponse(550, "Permission denied");
+        }
 
         boolean deletedSuccessfully = fileToDelete.delete();
-        if(deletedSuccessfully){
-            model.File fileModel = fileService.getFileByUserAndFileName(user, fileToDelete.getName());
+        if (deletedSuccessfully) {
             fileModel.accept(new DeleteVisitor());
             return new FtpResponse(204, "File deleted successfully");
-        }
-        else
+        } else {
             return new FtpResponse(409, "File could not be deleted");
+        }
     }
 
     private String getFilePathFromArgs(String arguments) {
         String[] argumentsSplit = arguments.split("\\\\");
 
-        if(argumentsSplit.length == 1)
+        if (argumentsSplit.length == 1) {
             return Paths.get(currentDirectoryPath, arguments).toAbsolutePath().toString();
-        else
+        } else {
             return arguments;
+        }
+    }
+
+    private boolean hasWritePermission(User user, model.File file) {
+        String permissions = file.getPermissions();
+        if (permissions == null || permissions.length() != 3) {
+            return false;
+        }
+
+        boolean isOwner = file.getOwner().equals(user);
+
+        int ownerPermissions = Character.getNumericValue(permissions.charAt(0));
+        int othersPermissions = Character.getNumericValue(permissions.charAt(2));
+
+        boolean hasFileWritePermission = isOwner
+                ? (ownerPermissions & 2) != 0
+                : (othersPermissions & 2) != 0;
+
+        File parentDir = new File(file.getLocation()).getParentFile();
+        if (parentDir != null && !parentDir.canWrite()) {
+            return false;
+        }
+
+        return hasFileWritePermission;
     }
 }
