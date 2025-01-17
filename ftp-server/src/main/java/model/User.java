@@ -1,6 +1,7 @@
 package model;
 
 import jakarta.persistence.*;
+import userMemento.UserMemento;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +79,23 @@ public class User {
 
     public void setHomeDirectory(String homeDirectory) {
         this.homeDirectory = homeDirectory;
+    }
+
+    public UserMemento saveToMemento() {
+        return new UserMemento(this.userId, this.username, this.password, this.isAdmin, this.homeDirectory);
+    }
+
+    public void restoreFromMemento(UserMemento userMemento) {
+        this.userId = userMemento.getUserId();
+        this.username = userMemento.getUsername();
+        this.password = userMemento.getPassword();
+        this.isAdmin = userMemento.isAdmin();
+        this.homeDirectory = userMemento.getHomeDirectory();
+    }
+
+    @Override
+    public String toString() {
+        return "User{ userId=" + userId + ", username=" + username + ", isAdmin=" + isAdmin + ", homeDirectory=" + homeDirectory + '}';
     }
 
 }
