@@ -10,5 +10,6 @@ public interface SessionRepository {
     Session updateSessionStatus(int sessionId);
     List<Session> getActiveSessions();
     Session getActiveSessionForUser(int userId);
+    void deleteSession(int sessionId);
 
 }

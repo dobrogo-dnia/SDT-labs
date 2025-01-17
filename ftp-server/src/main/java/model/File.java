@@ -1,10 +1,12 @@
 package model;
 
 import jakarta.persistence.*;
+import visitor.Visitable;
+import visitor.Visitor;
 
 @Entity
 @Table(name="files")
-public class File {
+public class File implements Visitable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int fileId;
@@ -19,7 +21,7 @@ public class File {
     @JoinColumn(nullable = false, name="ownerId")
     private User owner;
 
-    public File(String path) { }
+    public File(String path) {}
 
     public File(String name, String location, User owner) {
         this.name = name;
@@ -27,9 +29,7 @@ public class File {
         this.owner = owner;
     }
 
-    public File() {
-
-    }
+    public File() {}
 
     public int getFileId() {
         return fileId;
@@ -61,5 +61,15 @@ public class File {
 
     public boolean isFile() {
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "fileId - " + fileId + "; name - " + name;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 }

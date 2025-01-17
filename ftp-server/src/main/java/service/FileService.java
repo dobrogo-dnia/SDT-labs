@@ -10,9 +10,16 @@ import java.util.List;
 
 public class FileService {
     private final FileRepository fileRepository;
+    private static FileService fileService;
 
     public FileService() {
         this.fileRepository = new FileRepositoryImpl();
+    }
+
+    public static FileService getFileService() {
+        if(fileService == null)
+            fileService = new FileService();
+        return fileService;
     }
 
     public File getById(int fileId) {
@@ -35,10 +42,20 @@ public class FileService {
         fileRepository.deleteFile(fileId);
     }
 
-    public List<File> getAllUserFiles(User user) {
-        if (user != null)
-            return user.getFiles();
-        return Collections.emptyList();
+//    public List<File> getAllUserFiles(User user) {
+//        if (user != null)
+//            return user.getFiles();
+//        return Collections.emptyList();
+//    }
+
+    public File getFileByUserAndFileName(User user, String fileName) {
+        List<model.File> userFiles = fileRepository.getByUserId(user.getUserId());
+
+        for(model.File file : userFiles)
+            if(file.getName().equals(fileName))
+                return file;
+
+        return null;
     }
 
 }
